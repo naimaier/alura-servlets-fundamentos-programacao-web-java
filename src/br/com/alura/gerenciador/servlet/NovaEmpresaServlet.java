@@ -1,8 +1,8 @@
 package br.com.alura.gerenciador.servlet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -24,7 +24,11 @@ public class NovaEmpresaServlet extends HttpServlet {
 		Banco banco = new Banco();
 		banco.adiciona(empresa);
 
-		PrintWriter out = response.getWriter();
-		out.println("<html><body>Empresa " + empresa.getNome() + " cadastrada com sucesso!</body></html>");
+		// Despachando o request para o JSP
+		RequestDispatcher rd = request.getRequestDispatcher("/novaEmpresaCriada.jsp");
+		// Adicionamos a variável que usaremos no JSP ao request
+		request.setAttribute("empresa", empresa.getNome());
+		// Ele já sabe para onde ir, agora dizemos 'vai'
+		rd.forward(request, response);
 	}
 }
