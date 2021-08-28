@@ -4,6 +4,7 @@
 <!-- Importação da JSTL. 
 URI: O servidor não vai buscar essa uri na internet, ele vai procurar por esse pacote dentro do JAR.
 PREFIX: pode ser escolhido qualquer nome para referenciar dentro das tags -->
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
 <!DOCTYPE html>
 <html>
@@ -14,7 +15,7 @@ PREFIX: pode ser escolhido qualquer nome para referenciar dentro das tags -->
 <body>
 	<ul>
 		<c:forEach items="${ empresas }" var="empresa">
-			<li>${ empresa.nome }</li>
+			<li>${ empresa.nome } - <fmt:formatDate value="${ empresa.dataAbertura }" pattern="dd/MM/yyyy"/></li>
 			<!-- O JSTL simplifica a chamada do .getNome() para apenas .nome -->
 		</c:forEach>
 	</ul>
