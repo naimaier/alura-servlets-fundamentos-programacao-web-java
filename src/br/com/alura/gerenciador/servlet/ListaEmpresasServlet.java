@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/listaEmpresas")
 public class ListaEmpresasServlet extends HttpServlet {
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+	protected void service(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		
 		Banco banco = new Banco();
 		List<Empresa> empresas = banco.getEmpresas();
