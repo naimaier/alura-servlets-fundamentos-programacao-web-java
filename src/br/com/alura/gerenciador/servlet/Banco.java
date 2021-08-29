@@ -32,6 +32,15 @@ public class Banco {
 		return Banco.lista;
 	}
 	
+	public Empresa getEmpresaById(int id) {
+		for (Empresa empresa: lista) {
+			if (empresa.getId() == id) {
+				return empresa;
+			}
+		}
+		return null;
+	}
+	
 	public void removeEmpresa (int id) {
 		
 //		for (Empresa empresa : lista) {
