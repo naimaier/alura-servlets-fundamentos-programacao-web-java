@@ -15,7 +15,10 @@ PREFIX: pode ser escolhido qualquer nome para referenciar dentro das tags -->
 <body>
 	<ul>
 		<c:forEach items="${ empresas }" var="empresa">
-			<li>${ empresa.nome } - <fmt:formatDate value="${ empresa.dataAbertura }" pattern="dd/MM/yyyy"/></li>
+			<li>
+				${ empresa.nome } - <fmt:formatDate value="${ empresa.dataAbertura }" pattern="dd/MM/yyyy"/>
+				<a href="removeEmpresa?id=${ empresa.id }">Remove</a>
+			</li>
 			<!-- O JSTL simplifica a chamada do .getNome() para apenas .nome -->
 		</c:forEach>
 	</ul>
